@@ -14,7 +14,7 @@ Adds a file tree to the left panel when viewing a merge request.
 
 - Is now available as a chrome extension
 
-[Latest](https://cimpress.githost.io/gitlab-extensions/gitlab-file-tree/tags) 
+[Latest](https://chrome.google.com/webstore/detail/gitlab-file-tree/binadjnphlgfehdpnphcdojcgmoednhh) 
 
 ## Develop 
 
