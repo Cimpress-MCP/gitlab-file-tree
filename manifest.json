@@ -1,0 +1,27 @@
+{
+  "name": "GitLab File Tree",
+  "description" : "Will show a file tree on git lab merge request pages.",
+  "short_name": "GitLab File Tree",
+  "version": "1.0",
+  "icons": {
+    "16": "images/GLFT.png",
+    "48": "images/GLFT.png",
+    "32": "images/GLFT.png",
+    "128": "images/GLFT.png"
+  },
+  "permissions": [
+    "https://*/",
+    "http://*/",
+    "declarativeContent"
+  ],
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "css": ["filetreeinjection.css"],
+      "js": ["filetreeinjection.js"],
+      "matches":["https://*.githost.io/*merge_requests/*"],
+      "run_at": "document_idle"
+    }
+  ]
+}

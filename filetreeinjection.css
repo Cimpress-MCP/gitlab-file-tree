@@ -1,0 +1,62 @@
+.gl-file-tree {
+  border-top: 2px solid #e5e5e5;
+  border-bottom: 2px solid #e5e5e5;
+}
+.gl-file-tree__heading {
+  border-bottom: 2px solid #e5e5e5;
+}
+.gl-file-tree__tree-view {
+  height: 475px;
+  overflow: auto;
+}
+.gl-file-tree__tree-view ul {
+  margin: 0 0 0 8px;
+  padding: 0;
+}
+.gl-file-tree__folder--collapsed {
+  display: none;
+}
+.gl-file-tree__tree-view li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.gl-file-tree__folder {
+  cursor: pointer;
+}
+.gl-file-tree__icon {
+  margin-right: 4px;
+}
+.gl-file-tree__file--deleted {
+  text-decoration: line-through !important;
+  color: darkred !important;
+}
+.gl-file-tree__file--new {
+  color: green !important;
+}
+.gl-file-tree__file--new::after {
+  color: green;
+  content: '*';
+}
+.gl-file-tree__file--moved {
+}
+.gl-file-tree__file {
+  display: inline !important;
+  padding: 0 !important;
+}
+.gl-file-tree__tree-view::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+.gl-file-tree__tree-view::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background-color: #ffffff;
+}
+.gl-file-tree__tree-view::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #e5e5e5;
+}
+.gl-file-tree__tree-view::-webkit-scrollbar-corner {
+  background: transparent;
+}
