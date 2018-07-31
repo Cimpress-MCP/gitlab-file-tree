@@ -10,7 +10,7 @@
             "userDataDir": true,
             "port" : 9222,
             "name": "Launch Chrome gitlab",
-            "url": "https://cimpress.githost.io/ff/services/TransactionalPrice/merge_requests/11",
+            "url": "<testUrlHere>",
             "webRoot": "${workspaceFolder}"
         }
     ]
