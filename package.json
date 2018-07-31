@@ -1,6 +1,6 @@
 {
   "name": "gitlab-file-tree",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A file tree for gitlab merge requests",
   "main": "index.js",
   "repository": "git@cimpress.githost.io:jaanderson/gitlab-file-tree.git",
