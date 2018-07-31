@@ -25,18 +25,18 @@
               const anchor = node.querySelectorAll('.file-header-content a')[0];
               const titleNodes = anchor.getElementsByClassName('file-title-name');
               const lastTitle = titleNodes[titleNodes.length - 1];
-              const isDeleted = Array.from(anchor.childNodes).some(child => child.nodeType === 3 && child.textContent.trim() === 'deleted');
 
               // A file is new if there is a <small> element in the header and it is not deleted
+              const deleted = lastTitle.getAttribute('data-original-title').search("deleted") !== -1;
               const sizeChangeElement = node.querySelectorAll('.file-header-content small')[0];
-              const isNew = sizeChangeElement && !isDeleted;
+              const isNew = sizeChangeElement && !deleted;
 
               return {
                   href: anchor.getAttribute('href'),
-                  filePath: lastTitle.getAttribute('data-title'),
+                  filePath: lastTitle.getAttribute('data-original-title'), 
                   leaf: true,
                   referenceElement: node,
-                  isDeleted,
+                  deleted,
                   isNew
               };
           });
