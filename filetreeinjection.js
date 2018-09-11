@@ -25,18 +25,20 @@
               const anchor = node.querySelectorAll('.file-header-content a')[0];
               const titleNodes = anchor.getElementsByClassName('file-title-name');
               const lastTitle = titleNodes[titleNodes.length - 1];
-
+              const titles = lastTitle.dataset.originalTitle.split(' ');
+              const isDeleted = titles.some(t => t.trim() === 'deleted');
+              
               // A file is new if there is a <small> element in the header and it is not deleted
               const deleted = lastTitle.getAttribute('data-original-title').search("deleted") !== -1;
               const sizeChangeElement = node.querySelectorAll('.file-header-content small')[0];
-              const isNew = sizeChangeElement && !deleted;
+              const isNew = sizeChangeElement && !deleted || false;
 
               return {
                   href: anchor.getAttribute('href'),
                   filePath: lastTitle.getAttribute('data-original-title'), 
                   leaf: true,
                   referenceElement: node,
-                  deleted,
+                  isDeleted,
                   isNew
               };
           });
@@ -109,7 +111,7 @@
       const icon = createIconElement('file-text-o');
       const anchor = createElement('a');
       anchor.href = node.href;
-      anchor.textContent = node.path;
+      anchor.textContent = node.path.replace(' deleted', '');
       anchor.classList.add('gl-file-tree__file');
 
       if (node.isDeleted) {

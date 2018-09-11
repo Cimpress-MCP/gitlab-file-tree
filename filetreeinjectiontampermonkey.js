@@ -109,11 +109,12 @@ background: transparent;
               const anchor = node.querySelectorAll('.file-header-content a')[0];
               const titleNodes = anchor.getElementsByClassName('file-title-name');
               const lastTitle = titleNodes[titleNodes.length - 1];
-              const isDeleted = Array.from(anchor.childNodes).some(child => child.nodeType === 3 && child.textContent.trim() === 'deleted');
-
+              const titles = lastTitle.dataset.originalTitle.split(' ');
+              const isDeleted = titles.some(t => t.trim() === 'deleted');
+              
               // A file is new if there is a <small> element in the header and it is not deleted
               const sizeChangeElement = node.querySelectorAll('.file-header-content small')[0];
-              const isNew = sizeChangeElement && !isDeleted;
+              const isNew = sizeChangeElement && !isDeleted || false;
 
               return {
                   href: anchor.getAttribute('href'),
@@ -193,7 +194,7 @@ background: transparent;
       const icon = createIconElement('file-text-o');
       const anchor = createElement('a');
       anchor.href = node.href;
-      anchor.textContent = node.path;
+      anchor.textContent = node.path.replace(' deleted', '');
       anchor.classList.add('gl-file-tree__file');
 
       if (node.isDeleted) {
